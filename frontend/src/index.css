@@ -23,6 +23,19 @@
 	--color-warning: #d97706;
 	--color-warning-bg: #fffbeb;
 
+	/* Sidebar */
+	--color-sidebar: #10243e;
+	--color-sidebar-foreground: #ffffff;
+	--color-sidebar-muted: #cbd5e1;
+	--color-sidebar-secondary: #94a3b8;
+	--color-sidebar-accent: #60a5fa;
+	--color-sidebar-active: #2563eb;
+	--color-sidebar-border: rgb(255 255 255 / 10%);
+	--color-sidebar-hover: rgb(255 255 255 / 10%);
+	--color-sidebar-shadow: rgb(23 37 84 / 20%);
+	--color-sidebar-avatar: #e2e8f0;
+	--color-sidebar-avatar-foreground: #334155;
+
 	/* Typography */
 	--font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
 }
