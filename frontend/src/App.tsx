@@ -1,15 +1,17 @@
-import "./App.css";
 import { DashboardPage } from "./features/dashboard";
-import { Footer, Header, Main } from "./shared";
+import { Header, Main, Sidebar } from "./shared";
+
+const user = "Mateus Santos";
 
 export const App = () => {
 	return (
-		<>
-			<Header />
+		<div className="min-h-screen">
+			<Sidebar user={user} />
+
 			<Main>
+				<Header user={user} />
 				<DashboardPage />
 			</Main>
-			<Footer />
-		</>
+		</div>
 	);
 };
