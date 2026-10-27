@@ -1,16 +1,9 @@
-import type React from "react";
+import type { ReactNode } from "react";
 
-type MainProps = {
-	children: React.ReactNode;
-};
+interface MainProps {
+	children: ReactNode;
+}
 
-export const Main = ({ children }: MainProps) => {
-	return (
-		<main
-			className="
-      flex w-full flex-col justify-center items-center"
-		>
-			{children}
-		</main>
-	);
-};
+export function Main({ children }: MainProps) {
+	return <main className="min-h-screen min-w-0 bg-[#f5f8fc] lg:ml-64">{children}</main>;
+}
