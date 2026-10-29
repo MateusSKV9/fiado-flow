@@ -1,4 +1,5 @@
 import { Bell, ChevronDown, Search } from "lucide-react";
+import { Input } from "../components/Forms/Input";
 
 type HeaderProps = {
 	user: string;
@@ -16,6 +17,13 @@ export function Header({ user }: HeaderProps) {
 					aria-label="Buscar no sistema"
 					className="h-10 w-full rounded-xl border border-slate-200 bg-slate-50 pl-10 pr-4 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
 				/>
+
+				{/* <Input
+					type="search"
+					placeholder="Buscar no sistema..."
+					aria-label="Buscar no sistema"
+					className="h-10 w-full rounded-xl border border-slate-200 bg-slate-50 pl-10 pr-4 text-sm outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
+				/> */}
 			</div>
 
 			<div className="flex shrink-0 items-center gap-3 md:gap-5">

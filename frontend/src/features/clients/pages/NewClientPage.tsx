@@ -29,7 +29,7 @@ export function NewClientPage() {
 		// Futuramente, integrar com a API do FiadoFlow.
 		console.log("Dados do novo cliente:", formData);
 
-		navigate("/clientes");
+		navigate("/clients");
 	};
 
 	return (

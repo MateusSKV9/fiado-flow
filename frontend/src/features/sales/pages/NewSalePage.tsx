@@ -139,9 +139,8 @@ export function NewSalePage() {
 
 						<Button
 							type="button"
-							variant="secondary"
+							variant="brand"
 							leftIcon={<UserRoundPlus size={17} />}
-							className="border border-brand-100 bg-brand-50 text-brand-700 hover:bg-brand-100"
 							onClick={() => navigate("/new-client")}
 						>
 							Novo cliente
@@ -215,7 +214,7 @@ export function NewSalePage() {
 
 					{items.length > 0 ? (
 						<div className="overflow-x-auto">
-							<table className="w-full min-w-[460px] text-left text-sm">
+							<table className="w-full min-w-115 text-left text-sm">
 								<thead className="border-b border-border text-xs text-muted">
 									<tr>
 										<th scope="col" className="py-3 font-medium">

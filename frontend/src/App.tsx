@@ -9,13 +9,16 @@ const user = "Mateus Santos";
 
 // Componente para o Layout com Sidebar + Header
 const AppLayout = () => (
-	<div className="min-h-screen flex w-full">
+	<div className="min-h-screen w-full">
 		<Sidebar user={user} />
-		<Main>
+
+		<div className="ml-64 flex min-h-screen min-w-0 flex-col">
 			<Header user={user} />
-			{/* O Outlet renderiza as sub-rotas (/dashboard, /clientes, etc) */}
-			<Outlet />
-		</Main>
+
+			<Main>
+				<Outlet />
+			</Main>
+		</div>
 	</div>
 );
 
