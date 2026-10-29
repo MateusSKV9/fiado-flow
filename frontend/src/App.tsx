@@ -30,6 +30,7 @@ export const App = () => {
 				<Route element={<AppLayout />}>
 					<Route path="/dashboard" element={<DashboardPage />} />
 					<Route path="/clients" element={<ClientsPage />} />
+					<Route path="/new-client" element={<NewClientPage />} />
 					<Route path="/" element={<Navigate to="/dashboard" replace />} />
 				</Route>
 			</Routes>
