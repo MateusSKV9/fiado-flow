@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
 import { Search, Filter, Plus, Eye, Edit, Trash2, ChevronLeft, ChevronRight } from "lucide-react";
-import { PageHeader, Input, Button, Section } from "@/shared";
+import { PageHeader, Input, Button, Section, LinkStyled } from "@/shared";
 import type { Client } from "../types/client.types";
 import { formatCurrency } from "@/utils";
 
@@ -40,13 +39,9 @@ export function ClientsPage() {
 			<div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 				<PageHeader title="Clientes" description="Gerencie seus clientes e veja o histórico de compras." />
 
-				<Link
-					to="/new-client"
-					className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-brand-600 px-5 text-sm font-semibold text-brand-foreground shadow-sm transition-colors hover:bg-brand-700"
-				>
-					<Plus size={17} />
-					Novo cliente
-				</Link>
+				<LinkStyled size="lg" to="/new-client" leftIcon={<Plus size={17} />}>
+					Novo Cliente
+				</LinkStyled>
 			</div>
 
 			<div className="flex flex-col gap-3 sm:flex-row sm:items-center">

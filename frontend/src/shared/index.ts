@@ -7,9 +7,10 @@ export { Footer } from "./layout/Footer";
 // ——————————————————— COMPONENTS
 export { Section } from "./components/Section";
 export { PageHeader } from "./components/PageHeader";
+export { LinkStyled } from "./components/LinkStyled";
+export { Button } from "./components/Button";
 
 export { Form } from "./components/Forms/Form";
-export { Button } from "./components/Forms/Button";
 export { FormField } from "./components/Forms/FormField";
 export { Input } from "./components/Forms/Input";
 export { Select } from "./components/Forms/Select";

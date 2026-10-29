@@ -1,6 +1,6 @@
 import type { ComponentProps, ReactNode } from "react";
 
-type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
+type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "brand";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps extends ComponentProps<"button"> {
@@ -15,6 +15,8 @@ const variants: Record<ButtonVariant, string> = {
 	secondary: "bg-surface-muted text-foreground hover:bg-border",
 	outline: "border-border bg-surface text-foreground hover:bg-surface-muted",
 	ghost: "border-transparent text-muted hover:bg-surface-muted hover:text-foreground",
+	// Nova variante utilizando exatamente as tuas variáveis do @theme
+	brand: "border-brand-100 bg-brand-50 text-brand-700 hover:bg-brand-100",
 };
 
 const sizes: Record<ButtonSize, string> = {
