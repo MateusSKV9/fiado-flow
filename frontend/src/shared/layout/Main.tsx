@@ -5,5 +5,5 @@ interface MainProps {
 }
 
 export function Main({ children }: MainProps) {
-	return <main className="min-h-screen min-w-0 bg-[#f5f8fc] lg:ml-64">{children}</main>;
+	return <main className="min-h-screen w-full bg-[#f5f8fc] lg:ml-64">{children}</main>;
 }

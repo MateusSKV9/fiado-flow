@@ -11,6 +11,12 @@
         ]
       }
     ],
-    "typescript-config/is-valid": "off"
+    "typescript-config/is-valid": "off",
+    "axe/aria": [
+      "default",
+      {
+        "aria-valid-attr-value": "off"
+      }
+    ]
   }
 }

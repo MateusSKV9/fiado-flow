@@ -1,18 +1,19 @@
 import { ChartNoAxesCombined, CreditCard, HandCoins, House, Settings, Users } from "lucide-react";
 import FiadoLogo from "@/assets/fiado-flow-logo.png";
+import { NavLink } from "react-router-dom";
 
 const navigation = [
-	{ label: "Início", icon: House, href: "#inicio", active: true },
-	{ label: "Clientes", icon: Users, href: "#clientes" },
-	{ label: "Vendas", icon: HandCoins, href: "#vendas" },
-	{ label: "Pagamentos", icon: CreditCard, href: "#pagamentos" },
-	{ label: "Relatórios", icon: ChartNoAxesCombined, href: "#relatorios" },
-	{ label: "Configurações", icon: Settings, href: "#configuracoes" },
+	{ label: "Início", icon: House, href: "/dashboard" },
+	{ label: "Clientes", icon: Users, href: "/clients" },
+	{ label: "Vendas", icon: HandCoins, href: "/new-sale" },
+	{ label: "Pagamentos", icon: CreditCard, href: "/pagamentos" },
+	{ label: "Relatórios", icon: ChartNoAxesCombined, href: "/relatorios" },
+	{ label: "Configurações", icon: Settings, href: "/configuracoes" },
 ];
 
-type SidebarProps = {
+interface SidebarProps {
 	user: string;
-};
+}
 
 export function Sidebar({ user }: SidebarProps) {
 	return (
@@ -26,20 +27,22 @@ export function Sidebar({ user }: SidebarProps) {
 			</div>
 
 			<nav className="flex-1 space-y-2 px-3 py-5">
-				{navigation.map(({ label, icon: Icon, href, active }) => (
-					<a
+				{navigation.map(({ label, icon: Icon, href }) => (
+					<NavLink
 						key={label}
-						href={href}
-						aria-current={active ? "page" : undefined}
-						className={`flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-colors ${
-							active
-								? "bg-sidebar-active text-sidebar-foreground shadow-lg shadow-sidebar-shadow"
-								: "text-sidebar-muted hover:bg-sidebar-hover hover:text-sidebar-foreground"
-						}`}
+						to={href}
+						end
+						className={({ isActive }) =>
+							`flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-colors ${
+								isActive
+									? "bg-sidebar-active text-sidebar-foreground shadow-lg shadow-sidebar-shadow"
+									: "text-sidebar-muted hover:bg-sidebar-hover hover:text-sidebar-foreground"
+							}`
+						}
 					>
 						<Icon size={19} />
 						<span>{label}</span>
-					</a>
+					</NavLink>
 				))}
 			</nav>
 
