@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom
 import { DashboardPage } from "./features/dashboard";
 import { Header, Main, Sidebar } from "./shared";
 import { LoginPage } from "./features/login";
+import { ClientsPage, NewClientPage } from "./features/clients";
+import { NewSalePage } from "./features/sales";
 
 const user = "Mateus Santos";
 
@@ -27,6 +29,7 @@ export const App = () => {
 				{/* Rotas Privadas / Internas com Sidebar + Header */}
 				<Route element={<AppLayout />}>
 					<Route path="/dashboard" element={<DashboardPage />} />
+					<Route path="/clients" element={<ClientsPage />} />
 					<Route path="/" element={<Navigate to="/dashboard" replace />} />
 				</Route>
 			</Routes>
