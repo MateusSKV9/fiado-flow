@@ -15,3 +15,8 @@ export { FormField } from "./components/Forms/FormField";
 export { Input } from "./components/Forms/Input";
 export { Select } from "./components/Forms/Select";
 export { Textarea } from "./components/Forms/Textarea";
+
+export { Pagination } from "./components/Pagination";
+
+export { DataTable } from "./components/DataTable/DataTable";
+export type { Column } from "./components/DataTable/DataTable";
