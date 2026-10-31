@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const navigation = [
 	{ label: "Início", icon: House, href: "/dashboard" },
 	{ label: "Clientes", icon: Users, href: "/clients" },
-	{ label: "Vendas", icon: HandCoins, href: "/new-sale" },
+	{ label: "Vendas", icon: HandCoins, href: "/sales" },
 	{ label: "Pagamentos", icon: CreditCard, href: "/pagamentos" },
 	{ label: "Relatórios", icon: ChartNoAxesCombined, href: "/relatorios" },
 	{ label: "Configurações", icon: Settings, href: "/configuracoes" },

@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react";
 import { Plus, ShoppingBag, Trash2, UserRoundPlus } from "lucide-react";
-
 import type { PaymentMethod, SaleItem } from "../types/sale.types";
 import { PageHeader, FormField, Select, Button, Input, Textarea, Section } from "@/shared";
 import { useNavigate } from "react-router-dom";

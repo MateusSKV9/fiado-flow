@@ -4,6 +4,7 @@ import { Header, Main, Sidebar } from "./shared";
 import { LoginPage } from "./features/login";
 import { ClientsPage, NewClientPage } from "./features/clients";
 import { NewSalePage } from "./features/sales";
+import { SalesPage } from "./features/sales/pages/SalesPage";
 
 const user = "Mateus Santos";
 
@@ -34,6 +35,7 @@ export const App = () => {
 					<Route path="/dashboard" element={<DashboardPage />} />
 					<Route path="/clients" element={<ClientsPage />} />
 					<Route path="/new-client" element={<NewClientPage />} />
+					<Route path="/sales" element={<SalesPage />} />
 					<Route path="/new-sale" element={<NewSalePage />} />
 					<Route path="/" element={<Navigate to="/dashboard" replace />} />
 				</Route>
