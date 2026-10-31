@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff, CheckCircle2, Store } from "lucide-react";
+import { Button, Form, FormField, Input } from "@/shared";
 import FiadoLogo from "@/assets/fiado-flow-logo.png";
 
 export function LoginPage() {
@@ -20,7 +21,7 @@ export function LoginPage() {
 	return (
 		<div className="min-h-screen flex items-center justify-center bg-background p-4 sm:p-6 md:p-8">
 			{/* Card Principal */}
-			<div className="w-full max-w-4xl bg-surface rounded-2xl shadow-xl overflow-hidden grid grid-cols-1 md:grid-cols-2 min-h-140">
+			<section className="w-full max-w-4xl bg-surface rounded-2xl shadow-xl overflow-hidden grid grid-cols-1 md:grid-cols-2 min-h-140">
 				{/* Painel Esquerdo - Branding / Banner */}
 				<div className="bg-brand-600 p-8 md:p-10 text-brand-foreground flex flex-col justify-between relative overflow-hidden">
 					{/* Header do Logo */}
@@ -79,37 +80,29 @@ export function LoginPage() {
 						<p className="text-muted text-sm font-normal">Faça login para continuar</p>
 					</div>
 
-					<form onSubmit={handleSubmit} className="space-y-5">
+					<Form onSubmit={handleSubmit}>
 						{/* Campo E-mail */}
-						<div className="space-y-1.5">
-							<label htmlFor="email" className="block text-xs font-semibold text-foreground/80">
-								E-mail
-							</label>
-							<input
+						<FormField label="E-mail" htmlFor="email" required>
+							<Input
 								id="email"
 								type="email"
 								required
 								value={email}
 								onChange={(e) => setEmail(e.target.value)}
 								placeholder="seu@email.com"
-								className="w-full px-3.5 py-2.5 rounded-lg border border-border bg-surface text-foreground text-sm placeholder:text-muted/60 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition-all duration-200"
 							/>
-						</div>
+						</FormField>
 
 						{/* Campo Senha */}
-						<div className="space-y-1.5">
-							<label htmlFor="password" className="block text-xs font-semibold text-foreground/80">
-								Senha
-							</label>
+						<FormField label="Senha" htmlFor="password" required>
 							<div className="relative">
-								<input
+								<Input
 									id="password"
 									type={showPassword ? "text" : "password"}
 									required
 									value={password}
 									onChange={(e) => setPassword(e.target.value)}
 									placeholder="Digite sua senha"
-									className="w-full pl-3.5 pr-10 py-2.5 rounded-lg border border-border bg-surface text-foreground text-sm placeholder:text-muted/60 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition-all duration-200"
 								/>
 								<button
 									type="button"
@@ -120,7 +113,7 @@ export function LoginPage() {
 									{showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
 								</button>
 							</div>
-						</div>
+						</FormField>
 
 						{/* Lembrar de mim e Esqueci minha senha */}
 						<div className="flex items-center justify-between text-xs pt-1">
@@ -143,13 +136,10 @@ export function LoginPage() {
 						</div>
 
 						{/* Botão Entrar */}
-						<button
-							type="submit"
-							className="w-full py-2.5 px-4 bg-brand-600 hover:bg-brand-700 text-brand-foreground font-semibold rounded-lg shadow-sm hover:shadow transition-all duration-200 active:scale-[0.99] text-sm mt-2"
-						>
+						<Button type="submit" className="w-full">
 							Entrar
-						</button>
-					</form>
+						</Button>
+					</Form>
 
 					{/* Link para Cadastro */}
 					<div className="mt-8 text-center font-semibold text-sm text-muted">
@@ -159,7 +149,7 @@ export function LoginPage() {
 						</Link>
 					</div>
 				</div>
-			</div>
+			</section>
 		</div>
 	);
 }
