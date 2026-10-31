@@ -5,10 +5,12 @@ import { PageHeader, Input, Section, LinkStyled, DataTable, Pagination } from "@
 import { createClientColumns } from "../components/client-columns";
 import type { Client } from "../types/client.types";
 
+const PAGE_SIZE = 5;
 
 export function ClientsPage() {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [clients, setClients] = useState<Client[]>(mockClients);
+	const [currentPage, setCurrentPage] = useState(1);
 
 	const filteredClients = useMemo(() => {
 		const normalizedSearch = searchTerm.trim().toLowerCase();
@@ -18,6 +20,14 @@ export function ClientsPage() {
 				client.name.toLowerCase().includes(normalizedSearch) || client.phone.toLowerCase().includes(normalizedSearch)
 		);
 	}, [clients, searchTerm]);
+
+	const totalPages = Math.max(1, Math.ceil(filteredClients.length / PAGE_SIZE));
+	const paginatedClients = filteredClients.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+
+	function handleSearch(value: string) {
+		setSearchTerm(value);
+		setCurrentPage(1);
+	}
 
 	function handleDelete(clientId: string) {
 		const confirmed = window.confirm("Deseja excluir este cliente da lista?");
@@ -63,7 +73,7 @@ export function ClientsPage() {
 					<Input
 						type="search"
 						value={searchTerm}
-						onChange={(event) => setSearchTerm(event.target.value)}
+						onChange={(event) => handleSearch(event.target.value)}
 						placeholder="Buscar por nome ou telefone..."
 						aria-label="Buscar clientes por nome ou telefone"
 						className="pl-10"
@@ -77,6 +87,15 @@ export function ClientsPage() {
 					data={paginatedClients}
 					keyExtractor={(client) => client.id}
 					emptyMessage="Nenhum cliente encontrado."
+				/>
+
+				<Pagination
+					currentPage={currentPage}
+					totalPages={totalPages}
+					totalItems={filteredClients.length}
+					itemsPerPage={PAGE_SIZE}
+					onPageChange={setCurrentPage}
+					itemLabel="clientes"
 				/>
 			</Section>
 		</div>
