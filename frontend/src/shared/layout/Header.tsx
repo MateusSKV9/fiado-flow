@@ -1,5 +1,4 @@
 import { Bell, ChevronDown, Search } from "lucide-react";
-import { Input } from "../components/Forms/Input";
 
 type HeaderProps = {
 	user: string;
