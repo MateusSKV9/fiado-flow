@@ -1,8 +1,10 @@
 import { useMemo, useState } from "react";
-import { Plus, ShoppingBag, Trash2, UserRoundPlus } from "lucide-react";
-import type { PaymentMethod, SaleItem } from "../types/sale.types";
-import { PageHeader, FormField, Select, Button, Input, Textarea, Section } from "@/shared";
 import { useNavigate } from "react-router-dom";
+import { Plus, ShoppingBag, Trash2, UserRoundPlus } from "lucide-react";
+import { PageHeader, FormField, Select, Button, Input, Textarea, Section, LinkStyled } from "@/shared";
+import { formatCurrency } from "@/utils";
+import type { PaymentMethod } from "@/shared/types";
+import type { SaleItem } from "../types/sale.types";
 
 const customers = [
 	{ id: "1", name: "Maria Silva" },
@@ -11,14 +13,7 @@ const customers = [
 	{ id: "4", name: "Carlos Oliveira" },
 ];
 
-function formatCurrency(value: number) {
-	return value.toLocaleString("pt-BR", {
-		style: "currency",
-		currency: "BRL",
-	});
-}
-
-export function NewSalePage() {
+export default function NewSalePage() {
 	const [customerId, setCustomerId] = useState("");
 	const [productName, setProductName] = useState("");
 	const [quantity, setQuantity] = useState("1");
@@ -31,7 +26,6 @@ export function NewSalePage() {
 	const navigate = useNavigate();
 
 	const total = useMemo(() => items.reduce((sum, item) => sum + item.price * item.quantity, 0), [items]);
-
 	const totalQuantity = useMemo(() => items.reduce((sum, item) => sum + item.quantity, 0), [items]);
 
 	function addItem() {
@@ -93,21 +87,8 @@ export function NewSalePage() {
 			total,
 		};
 
-		// TODO: enviar saleData para a API.
 		console.log("Venda preparada:", saleData);
-
 		setFeedback(`Venda preparada: ${formatCurrency(total)}. A integração com a API ainda não foi configurada.`);
-	}
-
-	function handleClear() {
-		setCustomerId("");
-		setProductName("");
-		setQuantity("1");
-		setUnitPrice("");
-		setItems([]);
-		setPaymentMethod("Fiado");
-		setNotes("");
-		setFeedback("");
 	}
 
 	return (
@@ -140,7 +121,7 @@ export function NewSalePage() {
 							type="button"
 							variant="brand"
 							leftIcon={<UserRoundPlus size={17} />}
-							onClick={() => navigate("/new-client")}
+							onClick={() => navigate("/clients/new")}
 						>
 							Novo cliente
 						</Button>
@@ -155,13 +136,6 @@ export function NewSalePage() {
 
 				{/* Produtos */}
 				<Section className="space-y-4">
-					<h2 className="text-sm font-semibold text-foreground">
-						Produtos / Itens
-						<span className="ml-1 text-danger" aria-hidden="true">
-							*
-						</span>
-					</h2>
-
 					<div className="grid grid-cols-1 items-end gap-3 sm:grid-cols-12">
 						<div className="sm:col-span-6">
 							<FormField label="Produto / Item" htmlFor="productName" required>
@@ -314,9 +288,9 @@ export function NewSalePage() {
 
 				{/* Ações */}
 				<div className="flex flex-col-reverse justify-end gap-3 sm:flex-row">
-					<Button type="button" variant="outline" size="lg" onClick={handleClear}>
-						Limpar
-					</Button>
+					<LinkStyled to="/payments" variant="outline" size="lg">
+						Cancelar
+					</LinkStyled>
 
 					<Button type="submit" size="lg" leftIcon={<ShoppingBag size={17} />}>
 						Registrar venda

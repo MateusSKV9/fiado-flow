@@ -6,7 +6,7 @@ const navigation = [
 	{ label: "Início", icon: House, href: "/dashboard" },
 	{ label: "Clientes", icon: Users, href: "/clients" },
 	{ label: "Vendas", icon: HandCoins, href: "/sales" },
-	{ label: "Pagamentos", icon: CreditCard, href: "/pagamentos" },
+	{ label: "Pagamentos", icon: CreditCard, href: "/payments" },
 	{ label: "Relatórios", icon: ChartNoAxesCombined, href: "/relatorios" },
 	{ label: "Configurações", icon: Settings, href: "/configuracoes" },
 ];
@@ -31,7 +31,6 @@ export function Sidebar({ user }: SidebarProps) {
 					<NavLink
 						key={label}
 						to={href}
-						end
 						className={({ isActive }) =>
 							`flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-colors ${
 								isActive
