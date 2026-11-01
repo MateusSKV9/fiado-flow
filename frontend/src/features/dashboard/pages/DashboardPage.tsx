@@ -3,7 +3,7 @@ import { DashboardHeader } from "../components/DashboardHeader";
 import { DashboardSummary } from "../components/DashboardSummary";
 import { RecentSales } from "../components/RecentSales";
 
-export function DashboardPage() {
+export default function DashboardPage() {
 	return (
 		<div id="inicio" className="space-y-7 p-5 md:p-8">
 			<DashboardHeader user={"Mateus"} />

@@ -7,7 +7,7 @@ import type { Client } from "../types/client.types";
 
 const PAGE_SIZE = 5;
 
-export function ClientsPage() {
+export default function ClientsPage() {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [clients, setClients] = useState<Client[]>(mockClients);
 	const [currentPage, setCurrentPage] = useState(1);
@@ -57,7 +57,7 @@ export function ClientsPage() {
 			<div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 				<PageHeader title="Clientes" description="Gerencie seus clientes e veja o histórico de compras." />
 
-				<LinkStyled size="lg" to="/new-client" leftIcon={<Plus size={17} />}>
+				<LinkStyled size="lg" to="/clients/new" leftIcon={<Plus size={17} />}>
 					Novo Cliente
 				</LinkStyled>
 			</div>

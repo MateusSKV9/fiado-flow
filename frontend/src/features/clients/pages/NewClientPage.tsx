@@ -1,9 +1,9 @@
 import react from "react";
 import { useNavigate } from "react-router-dom";
 import { Save } from "lucide-react";
-import { PageHeader, FormField, Input, Textarea, Button, Section, Form } from "@/shared";
+import { PageHeader, FormField, Input, Textarea, Button, Section, Form, LinkStyled } from "@/shared";
 
-export function NewClientPage() {
+export default function NewClientPage() {
 	const navigate = useNavigate();
 
 	const [formData, setFormData] = react.useState({
@@ -28,7 +28,6 @@ export function NewClientPage() {
 
 		// Futuramente, integrar com a API do FiadoFlow.
 		console.log("Dados do novo cliente:", formData);
-
 		navigate("/clients");
 	};
 
@@ -109,9 +108,9 @@ export function NewClientPage() {
 
 					{/* Ações */}
 					<div className="flex flex-col-reverse justify-end gap-3 border-t border-border pt-5 sm:flex-row">
-						<Button type="button" variant="outline" size="lg" onClick={() => navigate("/clients")}>
+						<LinkStyled to="/payments" variant="outline" size="lg">
 							Cancelar
-						</Button>
+						</LinkStyled>
 
 						<Button type="submit" size="lg" leftIcon={<Save size={17} />}>
 							Salvar cliente

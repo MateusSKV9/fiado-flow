@@ -7,7 +7,7 @@ import type { Sale } from "../types/sale.types";
 
 const PAGE_SIZE = 5;
 
-export function SalesPage() {
+export default function SalesPage() {
 	const [sales] = useState<Sale[]>(mockSales);
 	const [searchTerm, setSearchTerm] = useState("");
 	const [dateFilter, setDateFilter] = useState("all");
@@ -70,7 +70,7 @@ export function SalesPage() {
 			<div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 				<PageHeader title="Vendas" description="Consulte todas as vendas realizadas." />
 
-				<LinkStyled size="lg" to="/new-sale" leftIcon={<Plus size={17} />}>
+				<LinkStyled size="lg" to="/sales/new" leftIcon={<Plus size={17} />}>
 					Nova venda
 				</LinkStyled>
 			</div>

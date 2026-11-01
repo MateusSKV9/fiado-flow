@@ -1,7 +1,7 @@
-import { Button, type Column } from "@/shared";
-import type { Sale, SaleStatus } from "../types/sale.types";
-import { formatCurrency, formatDate } from "@/utils";
 import { Eye, Pencil } from "lucide-react";
+import { Button, type Column } from "@/shared";
+import { formatCurrency, formatDate } from "@/utils";
+import type { Sale, SaleStatus } from "../types/sale.types";
 
 function getStatusClass(status: SaleStatus) {
 	const styles: Record<SaleStatus, string> = {

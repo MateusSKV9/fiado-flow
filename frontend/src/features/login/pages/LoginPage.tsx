@@ -4,7 +4,7 @@ import { Eye, EyeOff, CheckCircle2, Store } from "lucide-react";
 import { Button, Form, FormField, Input } from "@/shared";
 import FiadoLogo from "@/assets/fiado-flow-logo.png";
 
-export function LoginPage() {
+export default function LoginPage() {
 	const navigate = useNavigate();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
