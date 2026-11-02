@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Search, Plus } from "lucide-react";
 import { mockClients } from "@/mocks";
-import { PageHeader, Input, Section, LinkStyled, DataTable, Pagination } from "@/shared";
+import { PageHeader, Input, Card, LinkStyled, DataTable, Pagination } from "@/shared";
 import { createClientColumns } from "../components/client-columns";
 import type { Client } from "../types/client.types";
 
@@ -81,7 +81,7 @@ export default function ClientsPage() {
 				</div>
 			</div>
 
-			<Section className="overflow-hidden p-0!">
+			<Card className="overflow-hidden p-0!">
 				<DataTable
 					columns={clientColumns}
 					data={paginatedClients}
@@ -97,7 +97,7 @@ export default function ClientsPage() {
 					onPageChange={setCurrentPage}
 					itemLabel="clientes"
 				/>
-			</Section>
+			</Card>
 		</div>
 	);
 }

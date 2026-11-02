@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Search, Filter, Plus } from "lucide-react";
 import { mockSales } from "@/mocks";
-import { PageHeader, LinkStyled, Input, DataTable, Section, Pagination } from "@/shared";
+import { PageHeader, LinkStyled, Input, DataTable, Card, Pagination } from "@/shared";
 import { createSaleColumns } from "../components/sale-columns";
 import type { Sale } from "../types/sale.types";
 
@@ -116,7 +116,7 @@ export default function SalesPage() {
 			</div>
 
 			{/* Tabela */}
-			<Section className="overflow-hidden p-0!">
+			<Card className="overflow-hidden p-0!">
 				<div className="overflow-x-auto">
 					<DataTable
 						columns={saleColumns}
@@ -135,7 +135,7 @@ export default function SalesPage() {
 					onPageChange={setCurrentPage}
 					itemLabel="vendas"
 				/>
-			</Section>
+			</Card>
 		</div>
 	);
 }

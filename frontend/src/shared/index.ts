@@ -5,7 +5,7 @@ export { Main } from "./layout/Main";
 export { Footer } from "./layout/Footer";
 
 // ——————————————————— COMPONENTS
-export { Section } from "./components/Section";
+export { Card } from "./components/Card";
 export { PageHeader } from "./components/PageHeader";
 export { LinkStyled } from "./components/LinkStyled";
 export { Button } from "./components/Button";

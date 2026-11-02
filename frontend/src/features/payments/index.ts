@@ -1,2 +1,4 @@
-export {default as PaymentsPage } from "./pages/PaymentsPage";
-export {default as NewPaymentPage } from "./pages/NewPaymentPage";
+export { default as PaymentsPage } from "./pages/PaymentsPage";
+export { default as NewPaymentPage } from "./pages/NewPaymentPage";
+
+export * from "./types/payment.types";

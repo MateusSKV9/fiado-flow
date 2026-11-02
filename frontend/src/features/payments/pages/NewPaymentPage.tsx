@@ -6,7 +6,7 @@ import {
 	Input,
 	Textarea,
 	Button,
-	Section,
+	Card,
 	RadioCard,
 	type PaymentMethod,
 	LinkStyled,
@@ -70,7 +70,7 @@ export default function NewPaymentPage() {
 
 			<form onSubmit={handleSubmit} className="space-y-6">
 				{/* Cliente e Venda */}
-				<Section className="space-y-4">
+				<Card className="space-y-4">
 					<FormField label="Cliente" htmlFor="customer" required>
 						<Select
 							id="customer"
@@ -104,10 +104,10 @@ export default function NewPaymentPage() {
 							))}
 						</Select>
 					</FormField>
-				</Section>
+				</Card>
 
 				{/* Valor e Data do Pagamento */}
-				<Section className="space-y-4">
+				<Card className="space-y-4">
 					<div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
 						<FormField label="Valor" htmlFor="amount" required>
 							<Input
@@ -145,10 +145,10 @@ export default function NewPaymentPage() {
 							))}
 						</div>
 					</FormField>
-				</Section>
+				</Card>
 
 				{/* Observações */}
-				<Section className="space-y-4">
+				<Card className="space-y-4">
 					<FormField label="Observações (opcional)" htmlFor="notes">
 						<Textarea
 							id="notes"
@@ -160,7 +160,7 @@ export default function NewPaymentPage() {
 							className="resize-y"
 						/>
 					</FormField>
-				</Section>
+				</Card>
 
 				{feedback && (
 					<p role="status" className="rounded-lg border border-border bg-surface p-3 text-sm text-muted">

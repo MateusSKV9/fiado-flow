@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Plus, ShoppingBag, Trash2, UserRoundPlus } from "lucide-react";
-import { PageHeader, FormField, Select, Button, Input, Textarea, Section, LinkStyled } from "@/shared";
+import { PageHeader, FormField, Select, Button, Input, Textarea, Card, LinkStyled } from "@/shared";
 import { formatCurrency } from "@/utils";
 import type { PaymentMethod } from "@/shared/types";
 import type { SaleItem } from "../types/sale.types";
@@ -97,7 +97,7 @@ export default function NewSalePage() {
 
 			<form onSubmit={handleSubmit} className="space-y-6">
 				{/* Cliente */}
-				<Section className="space-y-4">
+				<Card className="space-y-4">
 					<div className="flex flex-col gap-3 sm:flex-row sm:items-end">
 						<div className="min-w-0 flex-1">
 							<FormField label="Cliente" htmlFor="customer" required>
@@ -132,10 +132,10 @@ export default function NewSalePage() {
 							O cadastro de clientes será integrado nesta área futuramente.
 						</p>
 					)} */}
-				</Section>
+				</Card>
 
 				{/* Produtos */}
-				<Section className="space-y-4">
+				<Card className="space-y-4">
 					<div className="grid grid-cols-1 items-end gap-3 sm:grid-cols-12">
 						<div className="sm:col-span-6">
 							<FormField label="Produto / Item" htmlFor="productName" required>
@@ -239,10 +239,10 @@ export default function NewSalePage() {
 							Nenhum produto adicionado à venda.
 						</p>
 					)}
-				</Section>
+				</Card>
 
 				{/* Pagamento e observações */}
-				<Section className="space-y-5">
+				<Card className="space-y-5">
 					<div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
 						<FormField label="Forma de pagamento" htmlFor="paymentMethod" required>
 							<Select
@@ -278,7 +278,7 @@ export default function NewSalePage() {
 							className="resize-y"
 						/>
 					</FormField>
-				</Section>
+				</Card>
 
 				{feedback && (
 					<p role="status" className="rounded-lg border border-border bg-surface p-3 text-sm text-muted">

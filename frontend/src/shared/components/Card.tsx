@@ -10,13 +10,13 @@ const paddings = {
 	lg: "p-6 md:p-8",
 };
 
-export function Section({ padding = "md", className = "", children, ...props }: CardProps) {
+export function Card({ padding = "md", className = "", children, ...props }: CardProps) {
 	return (
-		<section
+		<article
 			className={["rounded-xl border border-border bg-surface shadow-sm", paddings[padding], className].join(" ")}
 			{...props}
 		>
 			{children}
-		</section>
+		</article>
 	);
 }

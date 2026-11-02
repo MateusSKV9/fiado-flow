@@ -1,7 +1,7 @@
 import react from "react";
 import { useNavigate } from "react-router-dom";
 import { Save } from "lucide-react";
-import { PageHeader, FormField, Input, Textarea, Button, Section, Form, LinkStyled } from "@/shared";
+import { PageHeader, FormField, Input, Textarea, Button, Card, Form, LinkStyled } from "@/shared";
 
 export default function NewClientPage() {
 	const navigate = useNavigate();
@@ -38,7 +38,7 @@ export default function NewClientPage() {
 				description="Cadastre um cliente para acompanhar suas vendas e seus pagamentos."
 			/>
 
-			<Section padding="lg">
+			<Card padding="lg">
 				<Form onSubmit={handleSubmit}>
 					{/* Nome e telefone */}
 					<div className="grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -117,7 +117,6 @@ export default function NewClientPage() {
 						</Button>
 					</div>
 				</Form>
-			</Section>
 		</div>
 	);
 }

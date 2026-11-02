@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Search, Filter, Plus } from "lucide-react";
 import { mockPayments } from "@/mocks/mockPayments";
-import { PageHeader, LinkStyled, Input, DataTable, Section, Pagination } from "@/shared";
+import { PageHeader, LinkStyled, Input, DataTable, Card, Pagination } from "@/shared";
 import { createPaymentColumns } from "../components/payment-columns";
 import type { Payment } from "../types/payment.types";
 
@@ -115,7 +115,7 @@ export default function PaymentsPage() {
 			</div>
 
 			{/* Tabela */}
-			<Section className="overflow-hidden p-0!">
+			<Card className="overflow-hidden p-0!">
 				<div className="overflow-x-auto">
 					<DataTable
 						columns={paymentColumns}
@@ -134,7 +134,7 @@ export default function PaymentsPage() {
 					onPageChange={setCurrentPage}
 					itemLabel="pagamentos"
 				/>
-			</Section>
+			</Card>
 		</div>
 	);
 }
