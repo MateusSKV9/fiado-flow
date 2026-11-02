@@ -4,4 +4,6 @@ export type Client = {
 	phone: string;
 	totalOpen: number;
 	status: "Ativo" | "Inativo";
+	document?: string;
+	address: string;
 };

@@ -4,9 +4,10 @@ export type PaymentStatus = "Confirmado" | "Pendente" | "Cancelado";
 
 export interface Payment {
 	id: string;
+	saleId: string;
 	date: string;
 	customer: string;
-	saleNumber?: number;
+	saleNumber: number;
 	amount: number;
 	method: PaymentMethod;
 	status: PaymentStatus;
