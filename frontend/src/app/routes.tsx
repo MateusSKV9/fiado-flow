@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AppLayout } from "./AppLayout";
 import { lazy, Suspense } from "react";
 import NotFoundPage from "./pages/NotFoundPage";
+import { ClientDetailsPage } from "@/features/clients";
 
 const LoginPage = lazy(() => import("@/features/login/index"));
 const DashboardPage = lazy(() => import("@/features/dashboard"));
@@ -56,6 +57,7 @@ export const AppRoutes = () => {
 
 						<Route path="/clients" element={<ClientsPage />} />
 						<Route path="/clients/new" element={<NewClientPage />} />
+						<Route path="/clients/:id" element={<ClientDetailsPage />} />
 
 						<Route path="/sales" element={<SalesPage />} />
 						<Route path="/sales/new" element={<NewSalePage />} />

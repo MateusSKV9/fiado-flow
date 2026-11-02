@@ -117,6 +117,7 @@ export default function NewClientPage() {
 						</Button>
 					</div>
 				</Form>
+			</Card>
 		</div>
 	);
 }
