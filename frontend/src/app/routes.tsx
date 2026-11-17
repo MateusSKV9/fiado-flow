@@ -3,6 +3,7 @@ import { AppLayout } from "./AppLayout";
 import { lazy, Suspense } from "react";
 import NotFoundPage from "./pages/NotFoundPage";
 import { ClientDetailsPage } from "@/features/clients";
+import { SaleDetailsPage } from "@/features/sales";
 
 const LoginPage = lazy(() => import("@/features/login/index"));
 const DashboardPage = lazy(() => import("@/features/dashboard"));
@@ -61,6 +62,7 @@ export const AppRoutes = () => {
 
 						<Route path="/sales" element={<SalesPage />} />
 						<Route path="/sales/new" element={<NewSalePage />} />
+						<Route path="/sales/:id" element={<SaleDetailsPage />} />
 
 						<Route path="/payments" element={<PaymentsPage />} />
 						<Route path="/payments/new" element={<NewPaymentPage />} />

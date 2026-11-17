@@ -1,9 +1,10 @@
 import { useMemo, useState } from "react";
 import { Search, Filter, Plus } from "lucide-react";
-import { mockSales } from "@/mocks";
+import { mockPayments, mockSales } from "@/mocks";
 import { PageHeader, LinkStyled, Input, DataTable, Card, Pagination } from "@/shared";
 import { createSaleColumns } from "../components/sale-columns";
 import type { Sale } from "../types/sale.types";
+import { getSaleFinancialSummary } from "@/utils";
 
 const PAGE_SIZE = 5;
 
@@ -15,10 +16,19 @@ export default function SalesPage() {
 
 	const [today] = useState(() => new Date());
 
+	// Calcula os valores financeiros de cada venda
+	const salesWithFinancialSummary = useMemo(() => {
+		return sales.map((sale) => ({
+			...sale,
+			...getSaleFinancialSummary(sale, mockPayments),
+		}));
+	}, [sales]);
+
+	// Busca e filtro por período
 	const filteredSales = useMemo(() => {
 		const normalizedSearch = searchTerm.trim().toLowerCase();
 
-		return sales.filter((sale) => {
+		return salesWithFinancialSummary.filter((sale) => {
 			const matchesSearch =
 				sale.customer.toLowerCase().includes(normalizedSearch) || sale.number.toString().includes(normalizedSearch);
 
@@ -35,8 +45,9 @@ export default function SalesPage() {
 
 			return matchesSearch && saleDate >= referenceDate;
 		});
-	}, [sales, searchTerm, dateFilter, today]);
+	}, [salesWithFinancialSummary, searchTerm, dateFilter, today]);
 
+	// Paginação
 	const totalPages = Math.max(1, Math.ceil(filteredSales.length / PAGE_SIZE));
 
 	const paginatedSales = filteredSales.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
@@ -51,16 +62,11 @@ export default function SalesPage() {
 		setCurrentPage(1);
 	}
 
-	function handleView(sale: Sale) {
-		window.alert(`Visualizar venda #${sale.number}`);
-	}
-
 	function handleEdit(sale: Sale) {
 		window.alert(`Editar venda #${sale.number}`);
 	}
 
 	const saleColumns = createSaleColumns({
-		onView: handleView,
 		onEdit: handleEdit,
 	});
 
