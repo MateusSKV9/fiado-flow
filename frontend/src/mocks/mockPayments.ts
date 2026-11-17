@@ -7,9 +7,8 @@ export const mockPayments: Payment[] = [
 		date: "2026-10-28",
 		customer: "Maria Silva",
 		saleNumber: 1001,
-		amount: 150.0,
+		amount: 115.0,
 		method: "Pix",
-		status: "Confirmado",
 	},
 	{
 		id: "p2",
@@ -19,7 +18,6 @@ export const mockPayments: Payment[] = [
 		saleNumber: 1002,
 		amount: 80.0,
 		method: "Dinheiro",
-		status: "Confirmado",
 	},
 	{
 		id: "p3",
@@ -29,6 +27,5 @@ export const mockPayments: Payment[] = [
 		saleNumber: 1003,
 		amount: 30.0,
 		method: "Cartão",
-		status: "Confirmado",
 	},
 ];
