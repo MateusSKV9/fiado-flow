@@ -1,5 +1,5 @@
 import { Eye, Pencil } from "lucide-react";
-import { Button, type Column } from "@/shared";
+import { Button, LinkStyled, type Column } from "@/shared";
 import { formatCurrency, formatDate } from "@/utils";
 import type { Sale, SaleStatus } from "../types/sale.types";
 
@@ -14,11 +14,10 @@ function getStatusClass(status: SaleStatus) {
 }
 
 type SaleColumnActions = {
-	onView: (sale: Sale) => void;
 	onEdit: (sale: Sale) => void;
 };
 
-export function createSaleColumns({ onView, onEdit }: SaleColumnActions): Column<Sale>[] {
+export function createSaleColumns({ onEdit }: SaleColumnActions): Column<Sale>[] {
 	return [
 		{
 			key: "date",
@@ -67,15 +66,9 @@ export function createSaleColumns({ onView, onEdit }: SaleColumnActions): Column
 			align: "right",
 			render: (sale) => (
 				<div className="flex items-center justify-end gap-1.5">
-					<Button
-						type="button"
-						variant="ghost"
-						size="sm"
-						aria-label={`Visualizar venda ${sale.number}`}
-						onClick={() => onView(sale)}
-					>
+					<LinkStyled to={`/sales/${sale.id}`} aria-label={`Visualizar venda ${sale.number}`} variant="ghost">
 						<Eye size={16} />
-					</Button>
+					</LinkStyled>
 
 					<Button
 						type="button"

@@ -1,6 +1,6 @@
 import type { PaymentMethod } from "@/shared/types/payment-method.types";
 
-export type PaymentStatus = "Confirmado" | "Pendente" | "Cancelado";
+// export type PaymentStatus = "Confirmado" | "Pendente" | "Cancelado";
 
 export interface Payment {
 	id: string;
@@ -10,5 +10,4 @@ export interface Payment {
 	saleNumber: number;
 	amount: number;
 	method: PaymentMethod;
-	status: PaymentStatus;
 }

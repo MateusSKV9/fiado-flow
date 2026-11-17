@@ -1,24 +1,13 @@
 import { Eye, Pencil } from "lucide-react";
-import { Button, type Column } from "@/shared";
+import { Button, LinkStyled, type Column } from "@/shared";
 import { formatCurrency, formatDate } from "@/utils";
-import type { Payment, PaymentStatus } from "../types/payment.types";
-
-function getPaymentStatusClass(status: PaymentStatus) {
-	const styles: Record<PaymentStatus, string> = {
-		Confirmado: "bg-success-bg text-success",
-		Pendente: "bg-warning-bg text-warning",
-		Cancelado: "bg-danger-bg text-danger",
-	};
-
-	return styles[status];
-}
+import type { Payment } from "../types/payment.types";
 
 type PaymentColumnActions = {
-	onView: (payment: Payment) => void;
 	onEdit: (payment: Payment) => void;
 };
 
-export function createPaymentColumns({ onView, onEdit }: PaymentColumnActions): Column<Payment>[] {
+export function createPaymentColumns({ onEdit }: PaymentColumnActions): Column<Payment>[] {
 	return [
 		{
 			key: "date",
@@ -48,34 +37,14 @@ export function createPaymentColumns({ onView, onEdit }: PaymentColumnActions): 
 			render: (payment) => <span className="text-muted">{payment.method}</span>,
 		},
 		{
-			key: "status",
-			header: "Status",
-			render: (payment) => (
-				<span
-					className={[
-						"inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium",
-						getPaymentStatusClass(payment.status),
-					].join(" ")}
-				>
-					{payment.status}
-				</span>
-			),
-		},
-		{
 			key: "actions",
 			header: "Ações",
 			align: "right",
 			render: (payment) => (
 				<div className="flex items-center justify-end gap-1.5">
-					<Button
-						type="button"
-						variant="ghost"
-						size="sm"
-						aria-label={`Visualizar pagamento de ${payment.customer}`}
-						onClick={() => onView(payment)}
-					>
+					<LinkStyled to={`/payments/${payment.id}`} aria-label={`Visualizar pagamento ${payment.id}`} variant="ghost">
 						<Eye size={16} />
-					</Button>
+					</LinkStyled>
 
 					<Button
 						type="button"

@@ -288,7 +288,7 @@ export default function NewSalePage() {
 
 				{/* Ações */}
 				<div className="flex flex-col-reverse justify-end gap-3 sm:flex-row">
-					<LinkStyled to="/payments" variant="outline" size="lg">
+					<LinkStyled to="/sales" variant="outline" size="lg">
 						Cancelar
 					</LinkStyled>
 

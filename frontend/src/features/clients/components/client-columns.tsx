@@ -1,15 +1,14 @@
 import { Eye, Edit, Trash2 } from "lucide-react";
-import { Button, type Column } from "@/shared";
+import { Button, LinkStyled, type Column } from "@/shared";
 import type { Client } from "../types/client.types";
 import { formatCurrency } from "@/utils";
 
 type ClientColumnActions = {
-	onView: (client: Client) => void;
 	onEdit: (client: Client) => void;
 	onDelete: (clientId: string) => void;
 };
 
-export function createClientColumns({ onView, onEdit, onDelete }: ClientColumnActions): Column<Client>[] {
+export function createClientColumns({ onEdit, onDelete }: ClientColumnActions): Column<Client>[] {
 	return [
 		{
 			key: "name",
@@ -50,15 +49,9 @@ export function createClientColumns({ onView, onEdit, onDelete }: ClientColumnAc
 			align: "right",
 			render: (client) => (
 				<div className="flex items-center justify-end gap-1.5">
-					<Button
-						type="button"
-						variant="ghost"
-						size="sm"
-						aria-label={`Ver histórico de ${client.name}`}
-						onClick={() => onView(client)}
-					>
+					<LinkStyled to={`/clients/${client.id}`} aria-label={`Visualizar cliente ${client.name}`} variant="ghost">
 						<Eye size={16} />
-					</Button>
+					</LinkStyled>
 
 					<Button
 						type="button"

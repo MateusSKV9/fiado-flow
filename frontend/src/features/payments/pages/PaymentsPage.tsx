@@ -50,16 +50,11 @@ export default function PaymentsPage() {
 		setCurrentPage(1);
 	}
 
-	function handleView(payment: Payment) {
-		window.alert(`Visualizar pagamento de ${payment.customer}`);
-	}
-
 	function handleEdit(payment: Payment) {
 		window.alert(`Editar pagamento de ${payment.customer}`);
 	}
 
 	const paymentColumns = createPaymentColumns({
-		onView: handleView,
 		onEdit: handleEdit,
 	});
 

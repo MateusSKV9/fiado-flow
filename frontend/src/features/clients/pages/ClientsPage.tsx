@@ -1,5 +1,4 @@
 import { useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Search, Plus } from "lucide-react";
 import { mockClients } from "@/mocks";
 import { PageHeader, Input, Card, LinkStyled, DataTable, Pagination } from "@/shared";
@@ -43,12 +42,7 @@ export default function ClientsPage() {
 		setCurrentPage((page) => Math.min(page, nextTotalPages));
 	}
 
-	const navigate = useNavigate();
-
 	const clientColumns = createClientColumns({
-		onView: (client) => {
-			navigate(`${client.id}`);
-		},
 		onEdit: (client) => {
 			window.alert(`Editar ${client.name}`);
 		},

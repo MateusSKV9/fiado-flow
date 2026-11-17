@@ -108,7 +108,7 @@ export default function NewClientPage() {
 
 					{/* Ações */}
 					<div className="flex flex-col-reverse justify-end gap-3 border-t border-border pt-5 sm:flex-row">
-						<LinkStyled to="/payments" variant="outline" size="lg">
+						<LinkStyled to="/clients" variant="outline" size="lg">
 							Cancelar
 						</LinkStyled>
 
